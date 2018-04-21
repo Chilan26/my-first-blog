@@ -1,23 +1,34 @@
+{% load staticfiles %}
 <html>
     <head>
-        <title>Chilan blog</title>
+        <title>Chilan's blog</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="{% static 'css/blog.css' %}">
     </head>
     <body>
         <div>
-            <h1><a href="/">Chilan Blog</a></h1>
+            <h1><a href="/">Chilan's Blog</a></h1>
 
       </div>
-      {{ posts }}
+      {% for post in posts %}
               <div>
-                  <p>published: 14.06.2014, 12:14</p>
-                  <h2><a href="">My first post</a></h2>
-                  <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+                  <p>published: 26.02.2018, 12:14</p>
+                  <h2><a href="">My first love</a></h2>
+                  <p>The Dalmatian is a breed of medium-sized dog, noted for its unique black or liver spotted coat and mainly used as a carriage dog in its early days. Its roots trace back to Croatia and its historical region of Dalmatia. Today, it is a popular family pet and many dog enthusiasts enter Dalmatians into kennel club competitions.</p>
               </div>
 
               <div>
-                  <p>published: 14.06.2014, 12:14</p>
-                  <h2><a href="">My second post</a></h2>
-                  <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut f.</p>
+                  <p>published: 13.02.2018, 12:14</p>
+                  <h2><a href="">My second love</a></h2>
+                  <p>Foxes are small-to-medium-sized, omnivorous mammals belonging to several genera of the family Canidae. Foxes have a flattened skull, upright triangular ears, a pointed, slightly upturned snout, and a long bushy tail (or brush). Twelve species belong to the monophyletic "true foxes" group of genus Vulpes.</p>
               </div>
+
+              <div>
+                  <p>published: 05.09.2018, 12:14</p>
+                  <h2><a href="">My third love</a></h2>
+                  <p>The Boxer is a medium-sized, short-haired breed of dog, developed in Germany. The coat is smooth and tight-fitting; colours are fawn or brindled, with or without white markings, and white. Boxers are brachycephalic (they have broad, short skulls), have a square muzzle, mandibular prognathism (an underbite).</p>
+              </div>
+              {% endfor %}
       </body>
 </html>
