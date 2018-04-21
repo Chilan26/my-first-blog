@@ -1,34 +1,36 @@
+{% extends 'blog/base.html' %}
 {% load staticfiles %}
 <html>
     <head>
         <title>Chilan's blog</title>
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+  <link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
     </head>
     <body>
-        <div>
+        <div class="page-header">
             <h1><a href="/">Chilan's Blog</a></h1>
+        </div>
 
-      </div>
-      {% for post in posts %}
-              <div>
-                  <p>published: 26.02.2018, 12:14</p>
-                  <h2><a href="">My first love</a></h2>
-                  <p>The Dalmatian is a breed of medium-sized dog, noted for its unique black or liver spotted coat and mainly used as a carriage dog in its early days. Its roots trace back to Croatia and its historical region of Dalmatia. Today, it is a popular family pet and many dog enthusiasts enter Dalmatians into kennel club competitions.</p>
-              </div>
+        <div class="content container">
+    <div class="row">
+        <div class="col-md-8">
 
-              <div>
-                  <p>published: 13.02.2018, 12:14</p>
-                  <h2><a href="">My second love</a></h2>
-                  <p>Foxes are small-to-medium-sized, omnivorous mammals belonging to several genera of the family Canidae. Foxes have a flattened skull, upright triangular ears, a pointed, slightly upturned snout, and a long bushy tail (or brush). Twelve species belong to the monophyletic "true foxes" group of genus Vulpes.</p>
-              </div>
 
-              <div>
-                  <p>published: 05.09.2018, 12:14</p>
-                  <h2><a href="">My third love</a></h2>
-                  <p>The Boxer is a medium-sized, short-haired breed of dog, developed in Germany. The coat is smooth and tight-fitting; colours are fawn or brindled, with or without white markings, and white. Boxers are brachycephalic (they have broad, short skulls), have a square muzzle, mandibular prognathism (an underbite).</p>
-              </div>
-              {% endfor %}
-      </body>
+          {% block content %}
+            {% for post in posts %}
+                <div class="post">
+                    <div class="date">
+                        {{ post.published_date }}
+                    </div>
+                    <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+                    <p>{{ post.text|linebreaksbr }}</p>
+                </div>
+            {% endfor %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+    </body>
 </html>
